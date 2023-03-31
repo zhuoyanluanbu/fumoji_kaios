@@ -3,6 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script> -->
   <script src="./js/jquery.min.js"></script>
   <script src="./js/encoding-indexes.js"></script>
   <script src="./js/encoding.js"></script>
@@ -20,19 +21,98 @@
 	.lcd_normalscreen{
 		height: 100%; 
 		width: 100%;
-		margin: 30% 0 0 0;
+    border: 1px solid black;
+    border-left: none;
 	}
-	.lcd_fullscreen{ 
-		height: 240px; 
-		width: 320px;
-	    transform: rotate(90deg); 
-		margin: 40px 0px 0px -40px;
-	}
+  .tap-btns {
+    width: 100%;
+    position: absolute;
+  }
+  .btn-arrows {
+    width: 150px;
+    height: 160px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .btn-arrows img {
+    width: 50px;
+    height: 50px;
+  }
+  .btn-arrows .up,.right,.down,.left{
+    position: absolute;
+  }
+  .btn-arrows .up {
+    right: 0;
+    top: 0;
+    margin-right: 50px;
+  }
+  .btn-arrows .right {
+    right: 0;
+    top: 0;
+    margin-top: 50px;
+    transform: rotate(90deg);
+  }
+  .btn-arrows .down {
+    right: 0;
+    top: 0;
+    margin-top: 100px;
+    margin-right: 50px;
+    transform: rotate(180deg);
+  }
+  .btn-arrows .left {
+    right: 0;
+    top: 0;
+    margin-top: 50px;
+    margin-right: 100px;
+    transform: rotate(270deg);
+  }
+  .btn-pager {
+    width: 51px;
+    height: 85px;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    margin-top: 16px;
+  }
+
+  .btn-pager .top,.down {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+  }
+  .btn-pager .down {
+    bottom: 0;
+    transform: rotate(180deg);
+  }
   </style>
 </head>
 <body>
   <canvas id="lcd" width="160" height="96" class="lcd_normalscreen" ></canvas>
+  <div id="tap_btns" class="tap-btns">
+    <div class="btn-arrows">
+        <img class="up" src="./img/up.png"></img>
+        <img class="right" src="./img/up.png"/>
+        <img class="down" src="./img/up.png"/>
+        <img class="left" src="./img/up.png"/>
+    </div>
+    <div class="btn-pager">
+       <img class="top" src="./img/top.png" /> 
+       <img class="down" src="./img/top.png" />
+    </div>
+    <div class="btn-select-enter">
+
+    </div>
+  </div>
   <script src="./js/fmj.core.js"></script>
   <script src="./js/keymap.js"></script>
+  <script>
+    var screenWidth = $(document).width();
+    var screenHeight = $(document).height();
+    $(".lcd_normalscreen").css("margin-top","20%");
+    $(".tap-btns").css({
+      height : screenHeight/3+"px"
+    });
+  </script>
 </body>
 </html>
