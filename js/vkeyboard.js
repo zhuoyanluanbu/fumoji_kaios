@@ -1,15 +1,26 @@
     var screenWidth = $(document).width();
     var screenHeight = $(document).height();
 
+    function updateOffset(){
+      if (screenHeight < 600) {
+        console.log('screenHeight < 360');
+        var margin = 60;
+        $('.lcd_normalscreen').css('margin-top',margin+'px');
+        $('.tap-btns').css('margin-bottom',margin+'px');
+      }
+    };
+    updateOffset();
+
     var lcdHeight = $("#lcd").height();
     var lcdOffset = $("#lcd").offset();
     console.log('lcdHeight -> '+lcdHeight);
     console.log('lcdOffset -> ');
     console.log(lcdOffset);
+
     $(".mask").css({
-        "height":lcdHeight+"px",
-        "line-height":lcdHeight+"px",
-        "margin-top":lcdOffset.top+"px"
+      "height":lcdHeight+"px",
+      "line-height":lcdHeight+"px",
+      "margin-top":lcdOffset.top+"px"
     });
 
     setTimeout(function(){
